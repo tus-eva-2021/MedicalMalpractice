@@ -18,7 +18,7 @@ public class MM_MainUI : MonoBehaviour
 
     void Start()
     {
-        kentON = true;
+        markusON = true;
     }
 
     
