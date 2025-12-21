@@ -5,12 +5,12 @@ using System;
 
 public class MM_DialogEvents 
 {
-    public event Action<string> onEnterDialogue;
-    public void EnterDialogue(string knotName)
+    public event Action<string> onEnterDialog;
+    public void EnterDialog(string knotName)
     {
-        if (onEnterDialogue != null)
+        if (onEnterDialog != null)
         {
-            onEnterDialogue(knotName);
+            onEnterDialog(knotName);
         }
     }
 }
