@@ -6,16 +6,25 @@ using UnityEngine.UI;
 
 public class MM_DialogManager : MonoBehaviour
 {
+    private bool dialogPlaying = false;
 
-    void Start()
+    private void OnEnable()
     {
-
+        MM_GameEventsManager.instance.dialogEvents.onEnterDialog += EnterDialog;
     }
 
    
-    void Update()
+    private void OnDisable()
     {
-        
+        MM_GameEventsManager.instance.dialogEvents.onEnterDialog -= EnterDialog;
     }
 
+    private void EnterDialog (string knotName)
+    {
+        if (dialogPlaying) 
+        {
+            return;
+        }
+        dialogPlaying = true;
+    }
 }
