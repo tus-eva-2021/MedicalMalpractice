@@ -1,10 +1,8 @@
+using Ink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using System;
-using Ink.Runtime;
 
 public class MM_DialogManager : MonoBehaviour
 {
@@ -22,28 +20,27 @@ public class MM_DialogManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MM_GameEventsManager._instance.dialogEvents.onEnterDialog += EnterDialog;
+        MM_GameEventsManager._instance.dialogEvents.onEnterDialog += enterDialog;
     }
 
     private void OnDisable()
     {
-        MM_GameEventsManager._instance.dialogEvents.onEnterDialog -= EnterDialog;
+        MM_GameEventsManager._instance.dialogEvents.onEnterDialog -= enterDialog;
     }
 
-  /*  private void SubmitPressed(InputEventContext inputEventContext)
-    {
-        // if the context isn't dialogue, we never want to register input here
-        if (!inputEventContext.Equals(InputEventContext.DIALOGUE))
-        {
-            return;
-        }
+      private void submitPressed()
+       {
+           if (!dialogPlaying)
+           {
+               return;
+           }
 
-        ContinueOrExitStory();
-    }*/
+           continueOrExitStory();
+       }
 
-    private void EnterDialog (string knotName)
+    private void enterDialog(string knotName)
     {
-        if (dialogPlaying) 
+        if (dialogPlaying)
         {
             return;
         }

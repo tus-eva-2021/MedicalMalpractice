@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class MM_GameEventsManager : MonoBehaviour
 {
     public static MM_GameEventsManager _instance { get; private set; }
 
     public MM_DialogEvents dialogEvents;
-    public MM_InputManager inputEvents;
 
     private void Awake()
     {
@@ -18,7 +14,6 @@ public class MM_GameEventsManager : MonoBehaviour
         }
         _instance = this;
 
-        inputEvents = new MM_InputManager();
         dialogEvents = new MM_DialogEvents();
     }
 }

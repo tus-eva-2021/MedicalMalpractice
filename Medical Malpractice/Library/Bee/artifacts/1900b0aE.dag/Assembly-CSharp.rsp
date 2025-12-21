@@ -362,9 +362,6 @@
 "Assets/Scripts/MM_DialogEvents.cs"
 "Assets/Scripts/MM_DialogManager.cs"
 "Assets/Scripts/MM_GameEventsManager.cs"
-"Assets/Scripts/MM_InputEventContext.cs"
-"Assets/Scripts/MM_InputManager.cs"
-"Assets/Scripts/MM_Inputs.cs"
 "Assets/Scripts/MM_MainUI.cs"
 "Assets/Scripts/MM_TriggerDialog.cs"
 -langversion:9.0
