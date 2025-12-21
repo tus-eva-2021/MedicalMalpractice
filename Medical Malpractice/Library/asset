@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkLibrary:
+  - inkAsset: {fileID: 102900000, guid: d536fddeb4918c54aa888bc32c440c3e, type: 3}
+    jsonAssetDirectory: {fileID: 0}
+    jsonAsset: {fileID: 4900000, guid: 4ef6da12be0a67d4bad5f7dfd33ad6a5, type: 3}
+    unhandledCompileErrors: []
+    recursiveIncludeErrorPaths: []
+    errors: []
+    warnings: []
+    todos: []
+    masterInkAssets: []
+    localIncludePaths: []
+    includes: []
   - inkAsset: {fileID: 102900000, guid: 19b4bab31f6411241bf77db12e5ca242, type: 3}
     jsonAssetDirectory: {fileID: 0}
     jsonAsset: {fileID: 4900000, guid: 40b9f54f3c6875944a162117721a3a46, type: 3}
