@@ -9,6 +9,7 @@ public class MM_DialogueManager : MonoBehaviour
 {
     //Tags
     private const string SPEAKER_TAG = "speaker";
+    private const string NARRATIVE_TAG = "narrative";
     private const string PORTRAIT_TAG = "portrait";
     [SerializeField] private Animator portraitAnimator;
 
@@ -106,12 +107,15 @@ public class MM_DialogueManager : MonoBehaviour
                 case PORTRAIT_TAG:
                     portraitAnimator.Play(tagValue);
                     break;
-               /* case LAYOUT_TAG:
-                    layoutAnimator.Play(tagValue);
+                case NARRATIVE_TAG:
+                    displayNameText.text = string.Empty;
                     break;
-                case AUDIO_TAG:
-                    SetCurrentAudioInfo(tagValue);
-                    break;*/
+                /* case LAYOUT_TAG:
+                     layoutAnimator.Play(tagValue);
+                     break;
+                 case AUDIO_TAG:
+                     SetCurrentAudioInfo(tagValue);
+                     break;*/
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;

@@ -2,7 +2,7 @@
 === intro ===
 //scene:black screen
 Hello...? Hellooooo!!! Anybody in there? #speaker:Markus
-You groan, adjusting to the fluorescent overhead lights piercing your vision Inorganic beeps and whirs, the sights and sounds are disorienting until one breath in of rubber and isopropyl informs you of your position in space: the mechanical womb of the hospital. 
+You groan, adjusting to the fluorescent overhead lights piercing your vision Inorganic beeps and whirs, the sights and sounds are disorienting until one breath in of rubber and isopropyl informs you of your position in space: the mechanical womb of the hospital. #narrative:narrative
 Just as you begin to ponder the why’s, the sharp stabbing pain of your left leg makes itself a known presence. Tracing back further ends in haze… Something about a night out, stumbling home after one too many… Oh. 
 //scene: hospital bed
 //show: Markus sprite, happy
@@ -33,7 +33,7 @@ I’m spending the night?#speaker:Player
 …The ambulance, and then the scans… Honestly I’m fine if you just bandage it and go. I can’t deal with this right now. #speaker:Player
 You didn’t exactly pick the most straight forward place to get shot.. Could be a while. #speaker:Markus #portrait:markus_nervous
 //show: Markus sprite, nervous
-You groan and put your head in your hands.
+You groan and put your head in your hands.#narrative:narrative
 You’re in good care, okay? Just press this button if you need anything. I’ll be here. #speaker:Markus #portrait:markus_happy
 //show: Markus sprite, happy
 -> END
