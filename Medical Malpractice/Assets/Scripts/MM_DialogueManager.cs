@@ -19,8 +19,12 @@ public class MM_DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
+    [SerializeField] private float typingSpeed = 0.04f;
 
     private Story currentStory;
+    private Coroutine displayLineCoroutine;
+    private bool canContinueToNextLine = false;
+    private bool isAddingRichTextTag = false;
     public bool dialogueIsPlaying { get; private set; }
 
     private void Awake()
@@ -47,7 +51,7 @@ public class MM_DialogueManager : MonoBehaviour
             return;
         }
 
-        if (currentStory.currentChoices.Count == 0 && MM_InputManager.GetInstance().GetSubmitPressed())
+        if (canContinueToNextLine && currentStory.currentChoices.Count == 0 && MM_InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
         }
@@ -66,16 +70,22 @@ public class MM_DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            HandleTags(currentStory.currentTags);
-            // DisplayChoices();
-        }
-        else
-        {
-            StartCoroutine(ExitDialogueMode());
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            string nextLine = currentStory.Continue();
+            if (nextLine.Equals("") && !currentStory.canContinue)
+            {
+                StartCoroutine(ExitDialogueMode());
+            }
+            else
+            {
+                HandleTags(currentStory.currentTags);
+                displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+            }
         }
     }
-
     private void HandleTags(List<string> currentTags)
     {
         foreach (string tag in currentTags)
@@ -107,6 +117,48 @@ public class MM_DialogueManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = line;
+        dialogueText.maxVisibleCharacters = 0;
+
+        //continueIcon.SetActive(false);
+       // HideChoices();
+
+        canContinueToNextLine = false;
+
+        bool isAddingRichTextTag = false;
+
+        foreach (char letter in line.ToCharArray())
+        {
+            if (MM_InputManager.GetInstance().GetSubmitPressed())
+            {
+                dialogueText.maxVisibleCharacters = line.Length;
+                break;
+            }
+
+            if (letter == '<' || isAddingRichTextTag)
+            {
+                isAddingRichTextTag = true;
+                if (letter == '>')
+                {
+                    isAddingRichTextTag = false;
+                }
+            }
+            else
+            {
+                //PlayDialogueSound(dialogueText.maxVisibleCharacters, dialogueText.text[dialogueText.maxVisibleCharacters]);
+                dialogueText.maxVisibleCharacters++;
+                yield return new WaitForSeconds(typingSpeed);
+            }
+        }
+
+        //continueIcon.SetActive(true);
+        //DisplayChoices();
+
+        canContinueToNextLine = true;
     }
 
     private IEnumerator ExitDialogueMode()
