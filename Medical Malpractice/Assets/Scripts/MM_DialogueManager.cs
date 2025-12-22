@@ -9,6 +9,8 @@ public class MM_DialogueManager : MonoBehaviour
 {
     //Tags
     private const string SPEAKER_TAG = "speaker";
+    private const string PORTRAIT_TAG = "portrait";
+    [SerializeField] private Animator portraitAnimator;
 
     //Dialogue System
     private static MM_DialogueManager instance;
@@ -28,12 +30,13 @@ public class MM_DialogueManager : MonoBehaviour
             Debug.LogWarning("Found more than one Dialogue Manager in the scene");
         }
         instance = this;
+
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
     }
 
     private void Start()
     {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
 
     }
 
@@ -77,7 +80,6 @@ public class MM_DialogueManager : MonoBehaviour
     {
         foreach (string tag in currentTags)
         {
-            // parse the tag
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
             {
@@ -91,10 +93,10 @@ public class MM_DialogueManager : MonoBehaviour
                 case SPEAKER_TAG:
                     displayNameText.text = tagValue;
                     break;
-              /*  case PORTRAIT_TAG:
+                case PORTRAIT_TAG:
                     portraitAnimator.Play(tagValue);
                     break;
-                case LAYOUT_TAG:
+               /* case LAYOUT_TAG:
                     layoutAnimator.Play(tagValue);
                     break;
                 case AUDIO_TAG:

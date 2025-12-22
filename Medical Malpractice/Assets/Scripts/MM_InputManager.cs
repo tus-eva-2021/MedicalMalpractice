@@ -37,10 +37,6 @@ public class MM_InputManager : MonoBehaviour
         }
     }
 
-    // for any of the below 'Get' methods, if we're getting it then we're also using it,
-    // which means we should set it to false so that it can't be used again until actually
-    // pressed again.
-
     public bool GetSubmitPressed()
     {
         bool result = submitPressed;
