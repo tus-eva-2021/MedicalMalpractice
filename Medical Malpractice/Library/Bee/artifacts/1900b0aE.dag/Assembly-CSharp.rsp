@@ -368,6 +368,7 @@
 "Assets/Ink/Demos/Basic Demo/Scripts/BasicInkExample.cs"
 "Assets/Ink/Demos/Basic Demo/Scripts/QuitGameOnKeypress.cs"
 "Assets/Scripts/Intro/MM_Intro_UIManager.cs"
+"Assets/Scripts/Intro/MM_UI_Confirmation.cs"
 "Assets/Scripts/Intro/MM_UI_InputWindow.cs"
 "Assets/Scripts/MM_DialogueManager.cs"
 "Assets/Scripts/MM_DialogueTrigger.cs"
