@@ -2161,10 +2161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7ecd428534190459b7e3e3f303ad35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 2cb9f8c4f63cc0942a3b86e384427ef8, type: 2}
   iWindow: {fileID: 300460769}
   conf: {fileID: 1108874908}
   input: {fileID: 294128648}
-  playerName: 
   confText: {fileID: 1877715877}
 --- !u!4 &1874486709
 Transform:
