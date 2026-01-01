@@ -22,6 +22,8 @@ public class MM_DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private float typingSpeed = 0.02f;
 
+    private MM_DialogueVariables dialogueVariables;
+    [SerializeField] private TextAsset loadGlobalsJSON;
     private Story currentStory;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
@@ -36,14 +38,12 @@ public class MM_DialogueManager : MonoBehaviour
         }
         instance = this;
 
+        dialogueVariables = new MM_DialogueVariables(loadGlobalsJSON);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
     }
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -63,6 +63,7 @@ public class MM_DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        dialogueVariables.StartListening(currentStory);
 
         ContinueStory();
     }
@@ -169,10 +170,35 @@ public class MM_DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
+        dialogueVariables.StopListening(currentStory);
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
+        }
+        return variableValue;
+    }
+
+    public void SetVariableState(string variableName, Ink.Runtime.Object variableValue) 
+    {
+        if (dialogueVariables.variables.ContainsKey(variableName)) 
+        {
+            dialogueVariables.variables.Remove(variableName);
+            dialogueVariables.variables.Add(variableName, variableValue);
+        }
+        else 
+        {
+            Debug.LogWarning("Tried to update variable that wasn't initialized by globals.ink: " + variableName);
+        }
+    } 
 
     public static MM_DialogueManager GetInstance()
     {

@@ -200,6 +200,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &173043124
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed35d86337535254b9f3b8034a27c8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 2cb9f8c4f63cc0942a3b86e384427ef8, type: 2}
   inkJSON: {fileID: 4900000, guid: 4ef6da12be0a67d4bad5f7dfd33ad6a5, type: 3}
 --- !u!114 &1291851533
 MonoBehaviour:
@@ -925,6 +927,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1324072965}
   displayNameText: {fileID: 555735188}
   typingSpeed: 0.02
+  loadGlobalsJSON: {fileID: 4900000, guid: 5d045ffb60e9ade4296ec9ebfa023dfe, type: 3}
 --- !u!1 &1324072963
 GameObject:
   m_ObjectHideFlags: 0

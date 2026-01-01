@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class MM_Intro_UIManager : MonoBehaviour
 {
@@ -38,5 +39,21 @@ public class MM_Intro_UIManager : MonoBehaviour
         iWindow.showIF();
         input.text = string.Empty;
         data.playerName = null;
+    }
+
+    public void clickYes()
+    {
+        if (data.playerName.Length > 0)
+        {
+            conf.hideOpt();
+            iWindow.showIF();
+            Debug.Log("Starting Game...");
+            SceneManager.LoadScene("Main_Medical_Malpractice");
+        }
+
+        if (data.playerName.Length <= 0)
+        {
+            clickNo();
+        }
     }
 }

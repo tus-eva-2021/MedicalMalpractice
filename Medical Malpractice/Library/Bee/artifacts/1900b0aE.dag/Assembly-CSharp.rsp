@@ -372,6 +372,7 @@
 "Assets/Scripts/Intro/MM_UI_InputWindow.cs"
 "Assets/Scripts/MainScene/MM_DialogueManager.cs"
 "Assets/Scripts/MainScene/MM_DialogueTrigger.cs"
+"Assets/Scripts/MainScene/MM_DialogueVariables.cs"
 "Assets/Scripts/MainScene/MM_InputManager.cs"
 "Assets/Scripts/MainScene/MM_MainUI.cs"
 "Assets/Scripts/Scriptable Objects/PlayerData.cs"
