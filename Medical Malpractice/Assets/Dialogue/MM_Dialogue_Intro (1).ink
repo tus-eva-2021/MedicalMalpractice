@@ -2,7 +2,7 @@ INCLUDE Globals.ink
 -> intro
 === intro ===
 //scene:black screen
-Hello...? Hellooooo!!! Anybody in there? #speaker:Markus
+Hello...? Hellooooo!!! Anybody in there? #speaker:Markus #layout:M_Center
 You groan, adjusting to the fluorescent overhead lights piercing your vision. Inorganic beeps and whirs, the sights and sounds are disorienting until one breath in of rubber and isopropyl informs you of your position in space: the mechanical womb of the hospital. #narrative:narrative
 Just as you begin to ponder the why’s, the sharp stabbing pain of your left leg makes itself a known presence. Tracing back further ends in haze… Something about a night out, stumbling home after one too many… Oh. 
 //scene: hospital bed
@@ -21,7 +21,7 @@ Insurance! For the… Well anyway! You’ll be here for a while so make yourself
 Can you give me pain..medicine… Tylenol or something...#speaker:{player_name}
 Well… according to your um, behavioral examination, you’ve got some time to sober up until we can give you anything. In the meantime… I brought you some water…! #speaker:Markus #portrait:markus_happy
 //show: Markus sprite, happy
-You take a drink.
+You take a drink. #narrative:narrative
 What time is it…#speaker:{player_name}
 Inching towards 2:30AM. Think Kent will want to see you soon after your scans are processed. I took em while you were out of it, I hope you don’t mind. #speaker:Markus #portrait:markus_neutral
 //show: Markus sprite, neutral

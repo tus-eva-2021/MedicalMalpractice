@@ -11,7 +11,10 @@ public class MM_DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string NARRATIVE_TAG = "narrative";
     private const string PORTRAIT_TAG = "portrait";
+    private const string LAYOUT_TAG = "layout";
+
     [SerializeField] private Animator portraitAnimator;
+    private Animator layoutAnimator;
 
     //Dialogue System
     private static MM_DialogueManager instance;
@@ -39,6 +42,8 @@ public class MM_DialogueManager : MonoBehaviour
         instance = this;
 
         dialogueVariables = new MM_DialogueVariables(loadGlobalsJSON);
+
+        layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -111,10 +116,10 @@ public class MM_DialogueManager : MonoBehaviour
                 case NARRATIVE_TAG:
                     displayNameText.text = string.Empty;
                     break;
-                /* case LAYOUT_TAG:
+                case LAYOUT_TAG:
                      layoutAnimator.Play(tagValue);
                      break;
-                 case AUDIO_TAG:
+                 /* case AUDIO_TAG:
                      SetCurrentAudioInfo(tagValue);
                      break;*/
                 default:
