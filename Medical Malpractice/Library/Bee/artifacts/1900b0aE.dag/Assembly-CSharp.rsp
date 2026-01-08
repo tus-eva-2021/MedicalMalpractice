@@ -370,7 +370,7 @@
 "Assets/Scripts/MainScene/MM_DialogueTrigger.cs"
 "Assets/Scripts/MainScene/MM_DialogueVariables.cs"
 "Assets/Scripts/MainScene/MM_InputManager.cs"
-"Assets/Scripts/MainScene/MM_MainUI.cs"
+"Assets/Scripts/MainScene/MM_UIManager.cs"
 "Assets/Scripts/Scriptable Objects/PlayerData.cs"
 -langversion:9.0
 /deterministic

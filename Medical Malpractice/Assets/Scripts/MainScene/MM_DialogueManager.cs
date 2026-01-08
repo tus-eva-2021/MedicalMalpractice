@@ -12,6 +12,7 @@ public class MM_DialogueManager : MonoBehaviour
     private const string NARRATIVE_TAG = "narrative";
     private const string PORTRAIT_TAG = "portrait";
     private const string LAYOUT_TAG = "layout";
+    private const string FADE_TAG = "fade";
 
     [SerializeField] private Animator portraitAnimator;
     private Animator layoutAnimator;
@@ -33,6 +34,8 @@ public class MM_DialogueManager : MonoBehaviour
     private bool isAddingRichTextTag = false;
     public bool dialogueIsPlaying { get; private set; }
 
+    public string fadeString;
+
     private void Awake()
     {
         if (instance != null)
@@ -47,6 +50,7 @@ public class MM_DialogueManager : MonoBehaviour
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        fadeString = string.Empty;
     }
 
 
@@ -119,9 +123,12 @@ public class MM_DialogueManager : MonoBehaviour
                 case LAYOUT_TAG:
                      layoutAnimator.Play(tagValue);
                      break;
-                 /* case AUDIO_TAG:
-                     SetCurrentAudioInfo(tagValue);
-                     break;*/
+                case FADE_TAG:
+                    fadeString = tagValue;
+                    break;
+                /* case AUDIO_TAG:
+                    SetCurrentAudioInfo(tagValue);
+                    break;*/
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                     break;

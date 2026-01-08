@@ -1,12 +1,15 @@
 INCLUDE Globals.ink
 -> intro
 === intro ===
-//scene:black screen
-Hello...? Hellooooo!!! Anybody in there? #speaker:Markus #layout:M_Center
+//scene:black screenOh.
+#fade:false
+Hello...? Hellooooo!!! Anybody in there? #speaker:Markus 
 You groan, adjusting to the fluorescent overhead lights piercing your vision. Inorganic beeps and whirs, the sights and sounds are disorienting until one breath in of rubber and isopropyl informs you of your position in space: the mechanical womb of the hospital. #narrative:narrative
 Just as you begin to ponder the why’s, the sharp stabbing pain of your left leg makes itself a known presence. Tracing back further ends in haze… Something about a night out, stumbling home after one too many… Oh. 
+#fade:true
 //scene: hospital bed
-//show: Markus sprite, happy
+//show: Markus sprite, happy 
+#layout:M_Center #portrait:markus_active 
 You're awake! #speaker:Markus #portrait:markus_happy
 
 Wha...#speaker:{player_name}
@@ -35,6 +38,7 @@ I’m spending the night?#speaker:{player_name}
 You didn’t exactly pick the most straight forward place to get shot.. Could be a while. #speaker:Markus #portrait:markus_nervous
 //show: Markus sprite, nervous
 You groan and put your head in your hands.#narrative:narrative
-You’re in good care, okay? Just press this button if you need anything. I’ll be here. #speaker:Markus #portrait:markus_happy
+You’re in good care, okay? Just press this button if you need anything. I’ll be here. #speaker:Markus #portrait:markus_happy #fade:false 
 //show: Markus sprite, happy
+
 -> END

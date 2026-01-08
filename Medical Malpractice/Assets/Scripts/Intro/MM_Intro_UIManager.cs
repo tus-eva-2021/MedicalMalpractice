@@ -17,6 +17,9 @@ public class MM_Intro_UIManager : MonoBehaviour
     public TMP_InputField input;
     public TMP_Text confText;
 
+    [SerializeField] public Image fadeIMG;
+    int fadeDuration = 1;
+
     void Awake()
     {
         input.characterLimit = 10;
@@ -45,15 +48,29 @@ public class MM_Intro_UIManager : MonoBehaviour
     {
         if (data.playerName.Length > 0)
         {
-            conf.hideOpt();
-            iWindow.showIF();
             Debug.Log("Starting Game...");
-            SceneManager.LoadScene("Main_Medical_Malpractice");
+            StartCoroutine(FadeToBlack());
         }
 
         if (data.playerName.Length <= 0)
         {
             clickNo();
         }
+    }
+
+    IEnumerator FadeToBlack()
+    {
+        Color initialColour = fadeIMG.color;
+        Color targetColour = new Color(initialColour.r, initialColour.g, initialColour.b, 1f);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            fadeIMG.color = Color.Lerp(initialColour, targetColour, elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        SceneManager.LoadScene("Main_Medical_Malpractice");
     }
 }
